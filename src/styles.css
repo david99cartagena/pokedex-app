@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+.badge-bordered {
+  border: 1px solid #adb5bd;
+}
+
+/* colores custom */
+.bg-purple {
+  background-color: #6f42c1 !important;
+}
+
+.bg-pink {
+  background-color: #d63384 !important;
+}
+
+.bg-brown {
+  background-color: #795548 !important;
+}
+
+.bg-steel {
+  background-color: #ced4da !important;
+}
