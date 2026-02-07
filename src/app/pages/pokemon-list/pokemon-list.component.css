@@ -1,0 +1,16 @@
+.pokemon-card {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+.pokemon-card:hover .btn {
+  transform: none;
+}

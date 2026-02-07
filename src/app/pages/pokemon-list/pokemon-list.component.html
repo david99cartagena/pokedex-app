@@ -1,0 +1,49 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="mb-0 fw-bold">🗃️ Pokédex</h4>
+
+    <button
+      class="btn btn-outline-secondary btn-sm"
+      (click)="refresh()"
+      [disabled]="loading"
+    >
+      🔄 Refrescar
+    </button>
+  </div>
+
+  <app-loader *ngIf="loading"></app-loader>
+
+  <div class="row g-3" *ngIf="!loading">
+    <div
+      class="col-md-3 col-sm-6"
+      *ngFor="let p of pokemons; trackBy: trackById"
+    >
+      <div class="card pokemon-card text-center h-100">
+        <img [src]="p | pokemonImage" class="card-img-top p-2" alt="pokemon" />
+
+        <div class="card-body d-flex flex-column">
+          <h6 class="mb-3 fw-semibold">{{ p.name | capitalize }}</h6>
+          <span
+            class="badge small mb-3 align-self-center"
+            [ngClass]="typeColorService.getClass(p.types[0].type.name)"
+          >
+            {{ p.types[0].type.name | capitalize }}
+          </span>
+
+          <button
+            class="btn btn-primary btn-sm mt-auto"
+            (click)="openDetail(p.id)"
+          >
+            Ver detalle
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-pokemon-detail
+  *ngIf="selectedPokemon"
+  [pokemon]="selectedPokemon"
+  (close)="closeDetail()"
+></app-pokemon-detail>
