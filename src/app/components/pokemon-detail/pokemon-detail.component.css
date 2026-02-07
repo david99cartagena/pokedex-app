@@ -1,0 +1,47 @@
+.modal-content {
+  animation: scaleIn 0.25s ease-out;
+  border-radius: 12px;
+}
+
+.pokemon-image {
+  max-width: 220px;
+  max-height: 220px;
+  width: 100%;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.pokemon-image:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 1rem;
+    max-height: 90vh;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+  }
+
+  .modal-body {
+    overflow-y: auto;
+  }
+
+  .pokemon-image {
+    max-width: 160px;
+    max-height: 160px;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
