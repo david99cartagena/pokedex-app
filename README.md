@@ -1,27 +1,93 @@
-# PokedexApp
+# 🦑 Pokédex
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Aplicación web desarrollada con **Angular 15** que consume la [PokéAPI](https://pokeapi.co/) para visualizar una colección dinámica de Pokémons. Este proyecto utiliza una arquitectura modular clásica con **NgModules**, optimizada para el rendimiento y la experiencia de usuario.
 
-## Development server
+Este proyecto se desarrolló para implementar y reforzar:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Arquitectura Modular:** Uso de `AppModule` y sub-módulos para una organización clara.
+- **Consumo de APIs REST:** Integración de `HttpClient` con el operador `forkJoin` para carga masiva de datos.
+- **Programación Reactiva:** Gestión de estados (loading y datos) mediante `BehaviorSubject` y `Observables` con **RxJS**.
+- **UI Moderna:** Diseño basado en **Bootstrap 5** con animaciones personalizadas de escalado y opacidad.
+- **Transformación de Datos:** Creación de `Pipes` personalizados para manipulación de strings y lógica de imágenes.
 
-## Code scaffolding
+## 📸 Demo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+🔗 **Visita la demo en línea:** [Pokedex en Netlify](https://celebrated-snickerdoodle-249346.netlify.app)
 
-## Build
+- **Pantalla principal**
+  ![Pokedex](https://raw.githubusercontent.com/david99cartagena/pokedex-app/refs/heads/main/media/Screenshot_1.png)
+- **Ver Pokémon**
+  ![Pokedex](https://raw.githubusercontent.com/david99cartagena/pokedex-app/refs/heads/main/media/Screenshot_2.png)
+- **Botón Refresh**
+  ![Pokedex](https://raw.githubusercontent.com/david99cartagena/pokedex-app/refs/heads/main/media/Screenshot_3.png)
+- **Validación de ID** - Existente
+  ![Pokedex](https://raw.githubusercontent.com/david99cartagena/pokedex-app/refs/heads/main/media/Screenshot_4.png)
+- **Validación de ID** - No Existente
+  ![Pokedex](https://raw.githubusercontent.com/david99cartagena/pokedex-app/refs/heads/main/media/Screenshot_5.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Tecnologías Utilizadas
 
-## Running unit tests
+- **Angular 15** (NgModules & CommonModule)
+- **TypeScript / RxJS** (Gestión de flujos asíncronos)
+- **Bootstrap 5** (Layout responsive y componentes UI)
+- **HTML5 / CSS3** (Animaciones `@keyframes` y transiciones de estado)
+- **PokéAPI** (RESTful API de terceros)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 📁 Estructura del Proyecto
 
-## Running end-to-end tests
+```
+src/app/
+├── components/          # Componentes de UI reutilizables
+│   ├── loader/          # Spinner de carga con animación fadeIn
+│   └── pokemon-detail/  # Modal de detalle con animación scaleIn
+├── pages/               # Componentes de vista (Páginas)
+│   └── pokemon-list/    # Grid principal y lógica de navegación
+├── models/              # Interfaces de TypeScript (Pokemon Model)
+├── services/            # Lógica de negocio
+│   ├── pokemon.service.ts            # Comunicación con PokéAPI
+│   └── pokemon-type-color.service.ts # Gestión de estilos por tipo
+├── pipes/               # Transformadores de datos
+│   ├── capitalize.pipe.ts            # Formateo de texto (PascalCase)
+│   └── pokemon-image.pipe.ts         # Selección de imagen óptima
+├── app-routing.module.ts # Configuración de rutas de la aplicación
+└── app.module.ts        # Declaraciones y configuraciones globales
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🔑 Funcionalidades
 
-## Further help
+- 🔄 **Carga Aleatoria:** Genera una lista de 30 IDs únicos en cada refresco para descubrir nuevos Pokémon.
+- 📍 **Ruteo Avanzado:** Soporte para rutas dinámicas `/pokemon/:id` que abren automáticamente el detalle del Pokémon.
+- 🖼️ **Priorización de Arte:** Pipe inteligente que busca el _Official Artwork_ de alta calidad antes de recurrir al sprite básico.
+- 🎨 **Tematización por Tipos:** Servicio que mapea dinámicamente los tipos (Fire, Water, etc.) a clases visuales de Bootstrap.
+- 📱 **Diseño Adaptativo:** Interfaz optimizada para móviles con scroll interno en modales de información.
+- ⏳ **Feedback de Carga:** Sistema de Loader centralizado que notifica al usuario durante las peticiones externas.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 📦 Instalación
+
+1. Clona este repositorio:
+
+```bash
+git clone https://github.com/david99cartagena/pokedex-app.git
+```
+
+```bash
+cd pokedex-app
+```
+
+2. Instala las dependencias:
+
+```bash
+npm install
+```
+
+3. Ejecuta el servidor local:
+
+```bash
+npm start
+```
+
+```bash
+ng serve
+```
+
+La aplicación estará disponible en: `http://localhost:4200/`
